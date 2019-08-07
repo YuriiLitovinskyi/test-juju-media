@@ -14,7 +14,8 @@
     </div>
     
     <div class="container">
-      <h1>App</h1>        
+      <h1>Weather App</h1>
+      <h5>Vue.js framework was used</h5>         
       <div class="btn-group" role="group">
         <button type="button" :class="getActiveClass('Misto Kyyiv')" v-on:click="getWeather('Misto Kyyiv'); activeId = 'Misto Kyyiv'">Kyiv</button>
         <button type="button" :class="getActiveClass('London')" v-on:click="getWeather('London'); activeId = 'London'" >London</button>
@@ -42,7 +43,7 @@
           </tr>
           <tr>
             <th scope="row">Wind speed</th>
-            <td>{{ this.wind_speed }} meter/sec</td>          
+            <td>{{ this.wind_speed }} m/s</td>          
           </tr>
           <tr>
             <th scope="row">Wind direction</th>
@@ -124,5 +125,9 @@ h1 {
 
 .btn {
   margin: 15px 1px;
+}
+
+table tbody th, td {
+  color: #2c3e50;
 }
 </style>

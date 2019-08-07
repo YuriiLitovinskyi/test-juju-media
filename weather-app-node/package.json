@@ -1,0 +1,20 @@
+{
+  "name": "weather-app-node",
+  "version": "1.0.0",
+  "description": "test task for JuJu Media ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yurii Litovinskyi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "pug": "^2.0.4",
+    "request": "^2.88.0"
+  }
+}
