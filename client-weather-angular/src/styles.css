@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+
+body {
+    background-color: #f9f9f9 !important;
+  }
+  
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;  
+    color: #2c3e50;
+    margin-top: 20px;
+  }
+  
+  h1 {
+    padding-top: 32px;
+  }
+  
+  .btn {
+    margin: 15px 1px;
+  }
+  
+  table tbody th, td {
+    color: #2c3e50;
+  }

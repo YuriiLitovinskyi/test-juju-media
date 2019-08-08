@@ -1,0 +1,55 @@
+<div id="app">
+  <div class="container">
+    <p>Api info:</p>
+    <ul>
+      <li>Docs:
+        <a href="https://openweathermap.org/current" target="_blank">https://openweathermap.org/current</a>
+      </li>
+      <li>Api key:
+        <span class="text-primary">c2dcf8ffb5cdc3f8977bfd2ae7ea4738</span>
+      </li>
+    </ul>
+    <hr>      
+  </div>
+  
+  <div class="container">
+    <h1>Weather App</h1>
+    <h5>Angular framework was used</h5>         
+    <div class="btn-group" role="group">
+      <button type="button" [ngClass]="getActiveClass('Misto Kyyiv')" (click)="getCurrentWeather('Misto Kyyiv'); activeId = 'Misto Kyyiv'">Kyiv</button>
+      <button type="button" [ngClass]="getActiveClass('London')" (click)="getCurrentWeather('London'); activeId = 'London'">London</button>
+      <button type="button" [ngClass]="getActiveClass('New York')" (click)="getCurrentWeather('New York'); activeId = 'New York'">New York</button>
+    </div>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">{{ this.city }}</th> 
+          <th></th>          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Temperature</th>
+          <td>{{ this.temp }} °C</td>         
+        </tr>
+        <tr>
+          <th scope="row">Atmospheric pressure</th>
+          <td>{{ this.pressure }} hPa</td>         
+        </tr>
+        <tr>
+          <th scope="row">Humidity</th>
+          <td>{{ this.humidity }} %</td>          
+        </tr>
+        <tr>
+          <th scope="row">Wind speed</th>
+          <td>{{ this.wind_speed }} m/s</td>          
+        </tr>
+        <tr>
+          <th scope="row">Wind direction</th>
+          <td>{{ this.wind_dec }} °</td>          
+        </tr>
+      </tbody>
+    </table>      
+  </div>  
+</div>
+
