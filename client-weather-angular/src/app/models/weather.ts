@@ -8,5 +8,9 @@ export class Weather {
     wind_dec:number;
     city:string;
     activeId:string; 
-    name:string;   
+    name:string; 
+    icon:any; 
+    status:string;
+    description:string;
+    clouds:number; 
 }

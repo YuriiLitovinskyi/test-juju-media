@@ -14,7 +14,11 @@ class App extends React.Component {
       wind_speed: "",
       wind_dec: "",
       city: "",
-      activeId: ""
+      activeId: "",
+      icon: "10d",
+      status: "",
+      description: "",
+      clouds: ""
     }
 
     this.getWeather = this.getWeather.bind(this);   
@@ -34,6 +38,14 @@ class App extends React.Component {
       activeId: "Misto Kyyiv"
     });
   }
+
+   getWeatherLutsk(){
+    this.getWeather("Lutsk");
+    this.setState({
+      activeId: "Lutsk"
+    });
+  }
+
 
   getWeatherLondon(){
     this.getWeather("London");
@@ -63,7 +75,11 @@ class App extends React.Component {
         humidity: response.data.main.humidity,
         wind_speed: response.data.wind.speed,
         wind_dec: response.data.wind.deg,
-        city: response.data.name
+        city: response.data.name,
+        icon: response.data.weather[0].icon,
+        status: response.data.weather[0].main,
+        description: response.data.weather[0].description,
+        clouds: response.data.clouds.all
       });      
     })
     .catch((error) => {
@@ -92,6 +108,7 @@ class App extends React.Component {
       <h5>React.js framework was used</h5>        
       <div className="btn-group" role="group">
         <button type="button" className={this.state.activeId === 'Misto Kyyiv' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherKyiv.bind(this) }>Kyiv</button>
+        <button type="button" className={this.state.activeId === 'Lutsk' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherLutsk.bind(this) }>Lutsk</button>
         <button type="button" className={this.state.activeId === 'London' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherLondon.bind(this) }>London</button>
         <button type="button" className={this.state.activeId === 'New York' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherNy.bind(this) }>New York</button>
       </div>
@@ -99,10 +116,22 @@ class App extends React.Component {
         <thead className="thead-light">
           <tr>
             <th scope="col">{ this.state.city }</th> 
-            <th></th>          
+            <th><img id="wicon" src={`http://openweathermap.org/img/wn/${this.state.icon}.png`} alt="Weather icon" /></th>          
           </tr>
         </thead>
         <tbody>
+        <tr>
+          <th scope="row">Current status</th>
+            <td>{ this.state.status }</td>         
+          </tr>
+          <tr>
+            <th scope="row">Detailed status</th>
+            <td>{ this.state.description }</td>         
+          </tr>
+          <tr>
+            <th scope="row">Cloudiness</th>
+            <td>{ this.state.clouds } %</td>         
+          </tr>
           <tr>
             <th scope="row">Temperature</th>
             <td>{ this.state.temp } °C</td>         

@@ -18,6 +18,7 @@
       <h5>Vue.js framework was used</h5>         
       <div class="btn-group" role="group">
         <button type="button" :class="getActiveClass('Misto Kyyiv')" v-on:click="getWeather('Misto Kyyiv'); activeId = 'Misto Kyyiv'">Kyiv</button>
+        <button type="button" :class="getActiveClass('Lutsk')" v-on:click="getWeather('Lutsk'); activeId = 'Lutsk'">Lutsk</button>
         <button type="button" :class="getActiveClass('London')" v-on:click="getWeather('London'); activeId = 'London'" >London</button>
         <button type="button" :class="getActiveClass('New York')" v-on:click="getWeather('New York'); activeId = 'New York'">New York</button>
       </div>
@@ -25,10 +26,22 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">{{ this.city }}</th> 
-            <th></th>          
+            <th><img id="wicon" :src="'http://openweathermap.org/img/wn/'+icon+'.png'" alt="Weather icon" /></th>          
           </tr>
         </thead>
         <tbody>
+          <tr>
+          <th scope="row">Current status</th>
+            <td>{{ this.status }}</td>         
+          </tr>
+          <tr>
+            <th scope="row">Detailed status</th>
+            <td>{{ this.description }}</td>         
+          </tr>
+          <tr>
+            <th scope="row">Cloudiness</th>
+            <td>{{ this.clouds }} %</td>         
+          </tr>
           <tr>
             <th scope="row">Temperature</th>
             <td>{{ this.temp }} °C</td>         
@@ -68,7 +81,11 @@ export default {
        wind_speed: "",
        wind_dec: "",
        city: "",       
-       activeId: "Misto Kyyiv"
+       activeId: "Misto Kyyiv",
+       icon: "10d",
+       status: "",
+       description: "",
+       clouds: ""
     }
   }, 
   methods: {
@@ -83,7 +100,11 @@ export default {
         this.humidity = response.data.main.humidity;
         this.wind_speed = response.data.wind.speed;
         this.wind_dec = response.data.wind.deg; 
-        this.city = response.data.name;     
+        this.city = response.data.name;
+        this.icon = response.data.weather[0].icon;
+        this.status = response.data.weather[0].main;
+        this.description = response.data.weather[0].description;
+        this.clouds = response.data.clouds.all;     
         //console.log(response.data);   
       })
       .catch((error) => {
@@ -108,26 +129,40 @@ export default {
 <style>
 
 body {
-  background-color: #f9f9f9 !important;
-}
+    background-color: #f9f9f9 !important;
+  }
+  
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;  
+    color: #2c3e50;
+    margin-top: 15px;
+  }
+  
+  h1 {
+    padding-top: 20px;
+  }
+  
+  .btn {
+    margin: 5px 1px;
+  }
+  
+  table tbody th, td {
+    color: #2c3e50;
+    
+  }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;  
-  color: #2c3e50;
-  margin-top: 20px;
-}
+  .table thead th {
+    vertical-align: middle !important;
+  }
 
-h1 {
-  padding-top: 32px;
-}
+  #wicon {
+    max-width:80%;
+    max-height:80%;    
+  }
 
-.btn {
-  margin: 15px 1px;
-}
-
-table tbody th, td {
-  color: #2c3e50;
-}
+  p {    
+    margin: 0px !important;
+  }
 </style>

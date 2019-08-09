@@ -10,17 +10,33 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;  
     color: #2c3e50;
-    margin-top: 20px;
+    margin-top: 15px;
   }
   
   h1 {
-    padding-top: 32px;
+    padding-top: 20px;
   }
   
   .btn {
-    margin: 15px 1px;
+    margin: 5px 1px;
   }
   
   table tbody th, td {
     color: #2c3e50;
+    
   }
+
+  .table thead th {
+    vertical-align: middle;
+  }
+
+  #wicon {
+    max-width:80%;
+    max-height:80%;    
+  }
+
+  p {    
+    margin: 0px;
+  }
+
+ 

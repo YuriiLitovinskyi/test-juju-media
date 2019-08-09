@@ -17,17 +17,30 @@
     <h5>Angular framework was used</h5>         
     <div class="btn-group" role="group">
       <button type="button" [ngClass]="getActiveClass('Misto Kyyiv')" (click)="getCurrentWeather('Misto Kyyiv'); activeId = 'Misto Kyyiv'">Kyiv</button>
+      <button type="button" [ngClass]="getActiveClass('Lutsk')" (click)="getCurrentWeather('Lutsk'); activeId = 'Lutsk'">Lutsk</button>
       <button type="button" [ngClass]="getActiveClass('London')" (click)="getCurrentWeather('London'); activeId = 'London'">London</button>
-      <button type="button" [ngClass]="getActiveClass('New York')" (click)="getCurrentWeather('New York'); activeId = 'New York'">New York</button>
+      <button type="button" [ngClass]="getActiveClass('New York')" (click)="getCurrentWeather('New York'); activeId = 'New York'">New York</button>            
     </div>
     <table class="table">
       <thead class="thead-light">
         <tr>
           <th scope="col">{{ this.city }}</th> 
-          <th></th>          
+          <th><img id="wicon" src="http://openweathermap.org/img/wn/{{this.icon}}.png" alt="Weather icon" /></th>          
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <th scope="row">Current status</th>
+          <td>{{ this.status }}</td>         
+        </tr>
+        <tr>
+          <th scope="row">Detailed status</th>
+          <td>{{ this.description }}</td>         
+        </tr>
+        <tr>
+          <th scope="row">Cloudiness</th>
+          <td>{{ this.clouds }} %</td>         
+        </tr>
         <tr>
           <th scope="row">Temperature</th>
           <td>{{ this.temp }} °C</td>         
