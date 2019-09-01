@@ -1,7 +1,7 @@
 export class Weather {
     main:any = {};
     wind:any = {};
-    temp:number;
+    temp:string;
     pressure:number;
     humidity:number;
     wind_speed:number;

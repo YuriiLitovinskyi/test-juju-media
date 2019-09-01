@@ -58,8 +58,14 @@ class App extends React.Component {
     this.getWeather("New York");
     this.setState({
       activeId: "New York"
-    });
-    
+    });    
+  }  
+
+   getWeatherSy(){
+    this.getWeather("Sydney");
+    this.setState({
+      activeId: "Sydney"
+    });    
   }  
   
   getWeather(city) {
@@ -111,6 +117,7 @@ class App extends React.Component {
         <button type="button" className={this.state.activeId === 'Lutsk' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherLutsk.bind(this) }>Lutsk</button>
         <button type="button" className={this.state.activeId === 'London' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherLondon.bind(this) }>London</button>
         <button type="button" className={this.state.activeId === 'New York' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherNy.bind(this) }>New York</button>
+        <button type="button" className={this.state.activeId === 'Sydney' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherSy.bind(this) }>Sydney</button>
       </div>
       <table className="table">
         <thead className="thead-light">

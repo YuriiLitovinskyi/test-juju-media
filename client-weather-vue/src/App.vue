@@ -21,6 +21,7 @@
         <button type="button" :class="getActiveClass('Lutsk')" v-on:click="getWeather('Lutsk'); activeId = 'Lutsk'">Lutsk</button>
         <button type="button" :class="getActiveClass('London')" v-on:click="getWeather('London'); activeId = 'London'" >London</button>
         <button type="button" :class="getActiveClass('New York')" v-on:click="getWeather('New York'); activeId = 'New York'">New York</button>
+        <button type="button" :class="getActiveClass('Sydney')" v-on:click="getWeather('Sydney'); activeId = 'Sydney'">Sydney</button>
       </div>
       <table class="table">
         <thead class="thead-light">
