@@ -70,7 +70,7 @@ class App extends React.Component {
   
   getWeather(city) {
     let key = "c2dcf8ffb5cdc3f8977bfd2ae7ea4738";    
-    let url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&?units=metric&APPID=" + key;
+    let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&?units=metric&APPID=" + key;
     axios
     .get("https://cors-anywhere.herokuapp.com/" + url)
     .then((response) => {
@@ -111,7 +111,7 @@ class App extends React.Component {
 
         <div className="container">
       <h1>Weather App</h1>
-      <h5>React.js framework was used</h5>        
+      <h5><strong>React.js</strong> framework was used to build this website</h5>        
       <div className="btn-group" role="group">
         <button type="button" className={this.state.activeId === 'Misto Kyyiv' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherKyiv.bind(this) }>Kyiv</button>
         <button type="button" className={this.state.activeId === 'Lutsk' ? 'btn btn-secondary active' : 'btn btn-secondary'} onClick={ this.getWeatherLutsk.bind(this) }>Lutsk</button>
@@ -123,7 +123,7 @@ class App extends React.Component {
         <thead className="thead-light">
           <tr>
             <th scope="col">{ this.state.city }</th> 
-            <th><img id="wicon" src={`http://openweathermap.org/img/wn/${this.state.icon}.png`} alt="Weather icon" /></th>          
+            <th><img id="wicon" src={`https://openweathermap.org/img/wn/${this.state.icon}.png`} alt="Weather icon" /></th>          
           </tr>
         </thead>
         <tbody>

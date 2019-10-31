@@ -15,7 +15,7 @@
     
     <div class="container">
       <h1>Weather App</h1>
-      <h5>Vue.js framework was used</h5>         
+      <h5><strong>Vue.js</strong> framework was used to build this website</h5>         
       <div class="btn-group" role="group">
         <button type="button" :class="getActiveClass('Misto Kyyiv')" v-on:click="getWeather('Misto Kyyiv'); activeId = 'Misto Kyyiv'">Kyiv</button>
         <button type="button" :class="getActiveClass('Lutsk')" v-on:click="getWeather('Lutsk'); activeId = 'Lutsk'">Lutsk</button>
@@ -27,7 +27,7 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">{{ this.city }}</th> 
-            <th><img id="wicon" :src="'http://openweathermap.org/img/wn/'+icon+'.png'" alt="Weather icon" /></th>          
+            <th><img id="wicon" :src="'https://openweathermap.org/img/wn/'+icon+'.png'" alt="Weather icon" /></th>          
           </tr>
         </thead>
         <tbody>
@@ -92,7 +92,7 @@ export default {
   methods: {
     getWeather(city) {      
       let key = "c2dcf8ffb5cdc3f8977bfd2ae7ea4738";    
-      let url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&?units=metric&APPID=" + key;
+      let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&?units=metric&APPID=" + key;
       axios
       .get("https://cors-anywhere.herokuapp.com/" + url)
       .then((response) => {

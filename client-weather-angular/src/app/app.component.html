@@ -14,7 +14,7 @@
   
   <div class="container">
     <h1>Weather App</h1>
-    <h5>Angular framework was used</h5>         
+    <h5><strong>Angular</strong> framework was used to build this website</h5>         
     <div class="btn-group" role="group">
       <button type="button" [ngClass]="getActiveClass('Misto Kyyiv')" (click)="getCurrentWeather('Misto Kyyiv'); activeId = 'Misto Kyyiv'">Kyiv</button>
       <button type="button" [ngClass]="getActiveClass('Lutsk')" (click)="getCurrentWeather('Lutsk'); activeId = 'Lutsk'">Lutsk</button>
@@ -26,7 +26,7 @@
       <thead class="thead-light">
         <tr>
           <th scope="col">{{ this.city }}</th> 
-          <th><img id="wicon" src="http://openweathermap.org/img/wn/{{this.icon}}.png" alt="Weather icon" /></th>          
+          <th><img id="wicon" src="https://openweathermap.org/img/wn/{{this.icon}}.png" alt="Weather icon" /></th>          
         </tr>
       </thead>
       <tbody>

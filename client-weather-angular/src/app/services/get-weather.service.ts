@@ -15,7 +15,7 @@ export class GetWeatherService {
   //Get Weather
   getWeather(city:string):Observable<Weather> {
     let key = "c2dcf8ffb5cdc3f8977bfd2ae7ea4738";    
-    let url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&?units=metric&APPID=" + key;
+    let url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&?units=metric&APPID=" + key;
     return this.http.get<Weather>(url);
   }
   
